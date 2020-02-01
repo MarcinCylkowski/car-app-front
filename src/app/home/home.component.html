@@ -1,0 +1,52 @@
+<!-- <div class="row">
+  <p>home works!</p>
+
+  <button class="btn btn-xs btn-success" (click)="incrementCounter()">button</button>
+  <button class="btn btn-xs btn-success" (click)="getCars()">get cars</button>
+  <p>{{this.mainService.counter}}</p>
+</div> -->
+
+<div class="row" style="margin-top:3em;">
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>brand</th>
+          <th>model</th>
+          <th>production year</th>
+          <th>description</th>
+          <th><button class="btn btn-sm btn-success" (click)="getInputs()">update</button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of cars">
+          <td><div *ngIf="flag">
+              <input type="text" [(ngModel)]="car.brand">
+            </div>
+            <p *ngIf="!flag"> {{car.brand}}</p></td>
+          <td>
+              <div *ngIf="flag">
+                  <input type="text" [(ngModel)]="car.model">
+                </div>
+                <p *ngIf="!flag"> {{car.model}}</p>
+          </td>
+          <td>
+              <div *ngIf="flag">
+                  <input type="text" [(ngModel)]="car.productionYear">
+                </div>
+                <p *ngIf="!flag"> {{car.productionYear}}</p>
+          </td>
+          <td>
+           <div *ngIf="flag">
+             <input type="text" [(ngModel)]="car.describe">
+           </div>
+           <p *ngIf="!flag"> {{car.describe}}</p>
+          </td>
+          <td><button class="btn btn-sm btn-danger" (click)="delete(car.id)">delete</button></td>
+          <button *ngIf="flag" class="btn btn-sm btn-success" (click)="update(car.id, car)">update</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
